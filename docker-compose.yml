@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+    cimage:
+        build: .
+        environment:
+          CIMAGE_PATH: '/home/cimage/cimage-minimal'
+        volumes:
+            - ./work:/home/cimage/work
+            - ../cimage-minimal:/home/cimage/cimage-minimal
+        tty: true
+        stdin_open: true
