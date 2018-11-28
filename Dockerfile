@@ -4,6 +4,11 @@ MAINTAINER Radu Suciu <radusuciu@gmail.com>
 
 RUN apt-get update && apt-get -y install imagemagick
 
+# imagemagick fix
+USER root
+ADD imagemagick6_policy_fix.sh /
+RUN sh /imagemagick6_policy_fix.sh
+
 # Create user with non-root privileges
 RUN adduser --disabled-password --gecos '' cimage
 RUN chown -R cimage /home/cimage
